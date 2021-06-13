@@ -1,26 +1,48 @@
-n = int(input("Enter number of days : "))
-r = int(input("Enter intial amount : "))
-x = int(input("Enter Money which will increase after successful workshop : "))
-y = int(input("Enter Money which will decrease after unseccessful workshop : "))
-b =  r  # let for check 
+n = 0 
+
+n = int(input())        
+r = int(input())
+x = int(input())
+y = int(input())
+
+# n,r,x,y = input().split()
+# n = int(n)
+# x =int(x)
+# r =int(r)
+# y = int(y)
+c = 0 
+s = 0
+l1 = [] # to make list of ci
+l2 = []  # to make lisk of si
+b =  0  # let for check for increasing 
+
+l = 0 # let to check for decreasing 
+
 
 for i in range(n):
-    c = int(input("Enter 1 if contest takes place on %dth day  otherwise enter 0 : " %(i+1)))
-    s = int(input("Enter 1 if the team eat pizza on %dth day otherwise enter 0 : " %(i+1)))
-    if(c==1 and s ==1):
-    
-        b += x
-    elif((c==0 and s == 1) or (s==1 and c == 0)):
-        b -= y
-    else:
-        b = r 
-if(b>r):
+    c = input()
+    l1.append(c)
+ 
+for i in range(n):    
+    s = input()
+    l2.append(s)
+for i in range(n):
+    # print(l1[i])
+    if(l1[i] == '1' and l2[i] == '1'):
+        b +=x
+# print(b)
+for i in range(n):
+    # print(l2[i])
+    if((l1[i] == '1' and l2[i] == '0') or (l2[i] == '1'and l1[i] == '0')):        
+        l += y
+# print(l)
+
+if(r+b-l > r):
     print("promoted")
-elif(b<r):
+elif(r+b-l < r):
     print("demoted")
-else:
+elif(r+b-l  == r):
     print("no change")
-    
 
 
 
